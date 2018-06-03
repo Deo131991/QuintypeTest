@@ -36,6 +36,7 @@ function getAllAvailableCabs(){
 						$(".customer_drop_latitude_position").val(data[i].customer_drop_latitude_position);
 						pickup_time=data[i].pickup_time;
 						bookingCabNumber=data[i].cab_number;
+						$("."+data[i].cabColor).prop("checked", true);
 
 						$(".initial_cab_information").html(travelingHtml);
 						$(".bookCab").css("display","none");
@@ -55,10 +56,12 @@ function getAllAvailableCabs(){
 	})
 }
 
-
+// global variables and array
 var AllCabs=[];
 var bookingCabNumber='';
 var pickupTime='';
+
+
 function showInputDirections(){
 
 	$(".bookCab").css("display","none");
@@ -128,6 +131,8 @@ function bookCab(){
 }
 
 function finishTrip(){
+	$("#cabPickupForm").css("display","none");
+	$("#cabBookingForm").css("display","none");
 
 	$(".drop").css("display","none");
 	$(".initial_cab_information").css("display","none");
@@ -147,6 +152,7 @@ function finishTrip(){
 				var data=JSON.parse(result);
 				// Call to Update Available Cab
 				$(".tripAmount").html("<h2>Last Traveling</h2><p>Total Time : "+data['hours']+":"+data['minut']+":"+data['second']+"</p><p> Total Distance : "+ data['total_distance']+ " Km</p><p> Total Cost : "+ data['total_amount']+ " Dogecoins !</p>");
+				
 				getAllAvailableCabs();
 
 				$("#cabPickupForm").css("display","none");

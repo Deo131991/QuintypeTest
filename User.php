@@ -16,12 +16,11 @@ class User {
 	public function authenticateUser($postData){
 		$conn=$this->db->connect() or die('Error in connection') ; //connect function call 
 		
-		$postData['user_name']=$_POST['user_name'];
-		$postData['mobile_no']=$_POST['mobile_no'];
-
+		// $postData['user_name']=$_POST['user_name'];
+		// $postData['mobile_no']=$_POST['mobile_no'];
 
 		$sql="SELECT * FROM user WHERE mobile_num=".$postData['mobile_no'];
-		
+
 		$result = mysqli_query($conn, $sql);
 
 		// checking user allready exits or not
@@ -72,6 +71,7 @@ class User {
 		else{
 			$postData['massage']="failed";
 		}
+		
 		
 		return $postData;
 	} 

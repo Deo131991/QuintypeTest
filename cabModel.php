@@ -194,15 +194,14 @@ class CabModel
 
 		$TotalDogeCoin=$TotalDogeCoin+(1*$time_To_Travel_fraction_Distance); // Total Amounts 2* KM + 1* Total Minut
 
-		
 		if ($postData['cabColor']=='Pink') {
 			
 			$TotalDogeCoin+=5;     //5 DogeCoins Extra with Pink Color Cab
 		}
 		
 		$data=array();
-		$data['total_distance']=sprintf("%.2f",$Total_Distance);
-		$data['total_amount']=sprintf("%.4f",$TotalDogeCoin);
+		$data['total_distance']=sprintf("%.5f",$Total_Distance);
+		$data['total_amount']=$TotalDogeCoin;
 		$data['hours']=sprintf("%02d",$Total_Time->h);
 		$data['minut']=sprintf("%02d",$Total_Time->i);
 		$data['second']=sprintf("%02d",$Total_Time->s);

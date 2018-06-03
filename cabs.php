@@ -10,6 +10,7 @@
 ?>
  <title>Cabs</title>
 <input type="number" name="mobile_no" id="mobile_no" hidden="hidden" value="<?=$_SESSION['mobile_no']?>">
+
 <nav class="text-right">
 	<h2 style="margin-right: 20px;"><a href="logout.php"> Log Out </a></h2>
 </nav>
@@ -61,10 +62,10 @@
 				</div>
 				 <div class="btn-group btn-group-toggle col-sm-offset-4 col-sm-6" data-toggle="buttons" style="margin-top: 10px; margin-bottom: 10px;">
 				  <label class="btn btn-primary active">
-				    <input type="radio" name="cabColor" id="cabColor" value="Normal" autocomplete="off" checked> Normal Color
+				    <input type="radio" name="cabColor" id="cabColor" value="Normal" class="Normal" autocomplete="off" checked> Normal Color
 				  </label>
 				  <label class="btn btn-default" style="background: #FFC0CB; color: #000;">
-				    <input type="radio" name="cabColor" id="cabColor" value="Pink" autocomplete="off"> Pink Color
+				    <input type="radio" name="cabColor" id="cabColor" class="Pink" value="Pink" autocomplete="off"> Pink Color
 				  </label>
 				</div>
 
