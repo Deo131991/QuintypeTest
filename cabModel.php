@@ -178,15 +178,14 @@ class CabModel
 		// Calculate Total Distance
 		$Total_Distance=$this->findDistance($postData['customer_pickup_longitude_postion'],$postData['customer_pickup_latitude_position'],$postData['customer_drop_longitude_postion'],$postData['customer_drop_latitude_position']);
 
-
-		$Distance_Int=(int)$Total_Distance;
-		$Distance_Float=$Total_Distance-$Distance_Int;
-
-
 		// dogicoin for fraction part( travel in minut) 
 		$speed=$Total_Distance/$Total_Hours;
-
 		$Total_Minut=($Total_Distance/$speed)*60; //Total Time
+
+
+		$Distance_Int=(int)$Total_Distance;            //distance integer part
+		$Distance_Float=$Total_Distance-$Distance_Int;  //distance fraction part
+
 
 		$time_To_Travel_fraction_Distance=($Distance_Float/$speed)*60; //fraction time .70km
 
@@ -195,18 +194,18 @@ class CabModel
 
 		$TotalDogeCoin=$TotalDogeCoin+(1*$time_To_Travel_fraction_Distance); // Total Amounts 2* KM + 1* Total Minut
 
+		
 		if ($postData['cabColor']=='Pink') {
 			
 			$TotalDogeCoin+=5;     //5 DogeCoins Extra with Pink Color Cab
 		}
 		
 		$data=array();
-		$data['total_distance']=sprintf("%02d",$Total_Distance);
-		$data['total_amount']=$TotalDogeCoin;
+		$data['total_distance']=sprintf("%.2f",$Total_Distance);
+		$data['total_amount']=sprintf("%.4f",$TotalDogeCoin);
 		$data['hours']=sprintf("%02d",$Total_Time->h);
 		$data['minut']=sprintf("%02d",$Total_Time->i);
 		$data['second']=sprintf("%02d",$Total_Time->s);
-
 
 		// Update Database 
 		$sql="UPDATE cab_running_status SET drop_time='".$postData['drop_time']."', total_distance=$Total_Distance,total_fare=$TotalDogeCoin, available=1 WHERE cab_number='".$postData['cab_number']."' AND pickup_time='".$postData['pickup_time']."'";

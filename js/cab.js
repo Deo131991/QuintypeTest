@@ -146,7 +146,7 @@ function finishTrip(){
 			if (result!=='null') {
 				var data=JSON.parse(result);
 				// Call to Update Available Cab
-				$(".tripAmount").html("<h2>Last Traveling</h2><p>Total Time : "+data['hours']+":"+data['minut']+":"+data['second']+"</p><p> Total Distance : "+ data['total_distance']+ " Km</p><p> Total Cost : "+ Math.round(data['total_amount'])+ " Dogecoins !</p>");
+				$(".tripAmount").html("<h2>Last Traveling</h2><p>Total Time : "+data['hours']+":"+data['minut']+":"+data['second']+"</p><p> Total Distance : "+ data['total_distance']+ " Km</p><p> Total Cost : "+ data['total_amount']+ " Dogecoins !</p>");
 				getAllAvailableCabs();
 
 				$("#cabPickupForm").css("display","none");

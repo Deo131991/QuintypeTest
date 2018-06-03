@@ -14,7 +14,7 @@
 		<h1 class="loginheading">BooK Cab</h1>
 		<form class="form-horizontal login-form" method="post" onsubmit="authUser(); return false;" name="login">
 		    <div class="form-group">
-		      <label class="control-label col-sm-2" for="user">Email:</label>
+		      <label class="control-label col-sm-2" for="user">Name:</label>
 		      <div class="col-sm-offset-1 col-sm-8" id="showError">
 		        <input type="text" class="form-control" id="user" placeholder="Enter Full Name (Optional)" name="user_name">
 		      </div>
